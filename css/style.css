@@ -1,0 +1,25 @@
+header .logo a {
+  text-decoration: none;
+}
+header .row {
+  background-color: #563d7c;
+  padding: 5px;
+  border-radius: 5px;
+}
+header .row a:hover {
+  color: gray;
+}
+
+main form .btn {
+  background-color: #563d7c;
+}
+
+.main_color {
+  background-color: #563d7c;
+}
+
+.total {
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=style.css.map */

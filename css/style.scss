@@ -1,0 +1,32 @@
+$main_color: #563d7c;
+header{
+    .logo{
+        a{
+            text-decoration: none;
+        }  
+    }
+    .row{
+        background-color: $main_color;
+        padding: 5px;
+        border-radius: 5px;
+        a{
+            &:hover{
+                color: gray;
+            }
+        }
+    }
+}
+main{
+    form{
+        .btn{
+            background-color: $main_color;
+        }
+    }
+}
+
+.main_color{
+    background-color: $main_color;
+}
+.total{
+    border-radius: 5px;
+}
