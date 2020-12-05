@@ -61,24 +61,40 @@ $(document).ready(function () {
     }
 
 
-    btn.click(function () {
+    btn.on("click", function (e) {
+
+        e.preventDefault();
         if ($('.total') != null) {
             $('.total').remove();
+
         }
+        if (htmlInputAmount.val() == '' ||
+            htmlSelectFrom.val() == null ||
+            htmlSelectTo.val() == null) {
+            alert('fields should no be empty');
+            return;
+        }
+        //        console.log(htmlInputAmount.val());
+        //        console.log(htmlSelectFrom.val());
+        //        console.log(htmlSelectTo.val());
         let amount = parseFloat(htmlInputAmount.val());
         let fromCurrency = parseFloat(htmlSelectFrom.val()).toFixed(2);
         let toCurrency = parseFloat(htmlSelectTo.val()).toFixed(2);
         let unitFromCurrency = toCurrency / fromCurrency;
         let total = (unitFromCurrency * amount).toFixed(2);
-        console.log(total);
+        //        console.log(total);
         htmlOutput.append(`<p class="total h5 main_color text-light p-3"><span class="text-warning">${total}</span></p>`);
+
     });
 
     $(document).click(function (e) {
         if (e.target.id !== 'btn') {
             if ($('.total') != null) {
                 $('.total').remove();
+                
             }
+        } else {
+            return
         }
     });
 
