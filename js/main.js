@@ -54,12 +54,6 @@ $(document).ready(function () {
     let btn = $('#btn');
     let htmlOutput = $('.output');
 
-    //    console.log(jsonCurrency);
-    //    console.log(baseCurrency);
-    //    console.log("from ", fromCurrency);
-    //    console.log("to ", toCurrency);
-    //    console.log('total ', total);
-
     for (let i in jsonCurrency.rates) {
         //        console.log(i, jsonCurrency.rates[i].toFixed(2));
         htmlSelectFrom.append(`<option value="${jsonCurrency.rates[i].toFixed(2)}">${i}</option>`);
@@ -68,7 +62,7 @@ $(document).ready(function () {
 
 
     btn.click(function () {
-        if($('.total') != null){
+        if ($('.total') != null) {
             $('.total').remove();
         }
         let amount = parseFloat(htmlInputAmount.val());
@@ -78,6 +72,14 @@ $(document).ready(function () {
         let total = (unitFromCurrency * amount).toFixed(2);
         console.log(total);
         htmlOutput.append(`<p class="total h5 bg-info text-light p-3"><span class="text-warning">${total}</span></p>`);
+    });
+
+    $(document).click(function (e) {
+        if (e.target.id !== 'btn') {
+            if ($('.total') != null) {
+                $('.total').remove();
+            }
+        }
     });
 
 
