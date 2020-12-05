@@ -71,7 +71,7 @@ $(document).ready(function () {
         let unitFromCurrency = toCurrency / fromCurrency;
         let total = (unitFromCurrency * amount).toFixed(2);
         console.log(total);
-        htmlOutput.append(`<p class="total h5 bg-info text-light p-3"><span class="text-warning">${total}</span></p>`);
+        htmlOutput.append(`<p class="total h5 main_color text-light p-3"><span class="text-warning">${total}</span></p>`);
     });
 
     $(document).click(function (e) {
