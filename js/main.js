@@ -56,8 +56,8 @@ $(document).ready(function () {
 
     for (let i in jsonCurrency.rates) {
         //        console.log(i, jsonCurrency.rates[i].toFixed(2));
-        htmlSelectFrom.append(`<option value="${jsonCurrency.rates[i].toFixed(2)}">${i}</option>`);
-        htmlSelectTo.append(`<option value="${jsonCurrency.rates[i].toFixed(2)}">${i}</option>`);
+        htmlSelectFrom.append(`<option value="${i}-${jsonCurrency.rates[i].toFixed(2)}">${i}</option>`);
+        htmlSelectTo.append(`<option value="${i}-${jsonCurrency.rates[i].toFixed(2)}">${i}</option>`);
     }
 
 
@@ -78,12 +78,17 @@ $(document).ready(function () {
         //        console.log(htmlSelectFrom.val());
         //        console.log(htmlSelectTo.val());
         let amount = parseFloat(htmlInputAmount.val());
-        let fromCurrency = parseFloat(htmlSelectFrom.val()).toFixed(2);
-        let toCurrency = parseFloat(htmlSelectTo.val()).toFixed(2);
+        let fromData = htmlSelectFrom.val().split('-', 2);
+        let toData = htmlSelectTo.val().split('-', 2);
+        //        console.log(fromData, toData);
+        //        return;
+        let fromCurrency = parseFloat(fromData['1']).toFixed(2);
+        let toCurrency = parseFloat(toData['1']).toFixed(2);
+        //        console.log(fromCurrency, toCurrency);
         let unitFromCurrency = toCurrency / fromCurrency;
         let total = (unitFromCurrency * amount).toFixed(2);
         //        console.log(total);
-        htmlOutput.append(`<p class="total h5 main_color text-light p-3"><span class="text-warning">${total}</span></p>`);
+        htmlOutput.append(`<p class="total h5 main_color text-light p-3"><span class="text-warning">${amount} ${fromData['0']} = ${total} ${toData['0']}</span></p>`);
 
     });
 
@@ -91,7 +96,7 @@ $(document).ready(function () {
         if (e.target.id !== 'btn') {
             if ($('.total') != null) {
                 $('.total').remove();
-                
+
             }
         } else {
             return
