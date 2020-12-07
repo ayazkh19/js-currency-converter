@@ -13,6 +13,9 @@ header .row a:hover {
 main form .btn {
   background-color: #563d7c;
 }
+main .full_height {
+  height: 80vh;
+}
 
 .main_color {
   background-color: #563d7c;
