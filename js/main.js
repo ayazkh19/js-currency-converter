@@ -9,6 +9,7 @@ let jsonCurrency = null;
 //let total = (unitFromCurrency * amount).toFixed(2);
 
 $(document).ready(function () {
+    $('.waiting').css('display', 'flex');
     let htmlSelectFrom = $('#from_select');
     let htmlSelectTo = $('#to_select');
     let htmlInputAmount = $('#amount');
@@ -32,6 +33,7 @@ $(document).ready(function () {
         complete: function () {
             console.log('ajax is completed');
             ajaxCompleted();
+            $('.waiting').css('display', 'none');
         }
     });
 
